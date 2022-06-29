@@ -1,0 +1,6 @@
+pytest
+flask
+selenium
+gunicorn
+SQLAlchemy
+Jinja2
