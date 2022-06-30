@@ -4,3 +4,6 @@ selenium
 gunicorn
 SQLAlchemy
 Jinja2
+flask_sqlalchemy
+pymysql
+pytest-cov
