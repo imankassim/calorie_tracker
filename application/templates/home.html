@@ -1,9 +1,25 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Calorie Tracker</title>
     </head>
     <body>
+        <a href="{{ url_for('home') }}">CALORIE TRACKER HOME</a>
+        <a href="{{ url_for('about') }}">ABOUT</a>
+        <a href="{{ url_for('add') }}">ADD USER</a>
         <h1>HEADER</h1>
+        {% for i in users %}
+            <p>Name: {{ i.fname }} {{ i.sname }}</p>
+            <p>Calorie Goal: {{ i.kcalaim }}</p> 
+            <form action="{{ url_for('delete', id=i.id) }}">
+                <button type = "Submit">Delete User</button> <br>
+            </form>
+            <form action="{{ url_for('update', id=i.id) }}">
+                <button type = "Submit">Update User</button> <br>
+            </form>
+            
+        {% endfor %}
+
         {% block body %}
         {% endblock body %}
     </body>
