@@ -1,17 +1,11 @@
 {% extends "home.html" %}
     {% block body %}
-    <!-- if name contains b -->
-        {% for user in users %}
-            {% if 'b' in user %} 
-            <p>{{ user }}</p>
-            {% else %}
-            <p> </p>
-            {% endif %}
-        {% endfor%}
+    <br>
+        {% for i in users %}
+            <p>Name: {{ i.fname }} {{ i.sname }}</p>
+            <p>Calorie Goal: {{ i.kcalaim }}</p> <br>
+        {% endfor %}
 
     {% endblock body %}
 
 
-
-            
-    

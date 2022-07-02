@@ -1,0 +1,21 @@
+{% extends "home.html" %}
+    {% block body %}
+    
+    <div class="form">
+        <form method="POST", action="">
+            {{ form.hidden_tag() }}
+                {{ form.first_name.label }} {{ form.first_name }}
+                <br>
+                {{ form.surname.label }} {{ form.surname }}
+                <br>
+                {{ form.kcalneeded.label }} {{ form.kcalneeded }}
+                <br>
+                {{ form.submit }}
+                <br> <br>
+                
+        </form>
+        
+        
+    </div>
+
+    {% endblock body %}
