@@ -1,15 +1,20 @@
 from application import app, db
 from application.models import UserNew, Meals
-from flask import redirect, url_for
+from flask import redirect, url_for, render_template
 
 
 @app.route('/')
-def home():
+def index():
     all_users = UserNew.query.all()
     userlist = ""
     for user in all_users:
         userlist = userlist + (f'Name: {user.fname} {user.sname}, Calories Needed: {user.kcalaim}') 
     return userlist
+
+@app.route('/htmltrial')
+def home():
+    userlist = ["immy", "bimmy", "fimmy", "rimbmy", "cimmy", "brimmy"]
+    return render_template('htmltrial.html', users=userlist)
 
 @app.route('/add/<name>')
 def add(name):
