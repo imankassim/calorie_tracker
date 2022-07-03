@@ -1,5 +1,9 @@
 {% extends "layout.html" %}
     {% block body %}
+        <h1>{{ welcomename }}</h1>
+        <h1>{{ userkcal }}</h1>
+        <h1>{{ userkcalconsumed }}</h1>
+
         {% for i in users %}
             <p>Name: {{ i.fname }} {{ i.sname }}</p>
             <p>Calorie Goal: {{ i.kcalaim }}</p> 
@@ -13,7 +17,7 @@
         {% endfor %}    
 
 
-            {% for i in meals %}
+            {% for i in all_meals_user %}
             <p>Meal: {{ i.mealname }}</p>
             <p>Calories in meal: {{ i.kcal }}</p> 
             <form action="{{ url_for('deletemeal', id=i.id) }}">
@@ -24,8 +28,5 @@
             </form>
             
         {% endfor %}
-
-        <h1>{{ welcomename }}</h1>
-        <h1>{{ userkcal }}</h1>
 
     {% endblock body %}

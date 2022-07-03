@@ -7,8 +7,6 @@
                 <br>
                 {{ form.kcal.label }} {{ form.kcal }}
                 <br>
-                {{ form.userid.label }} {{ form.userid }}
-                <br>
                 <br>
                 {{ form.submit }}
                 <br>
@@ -17,6 +15,15 @@
 
                 <br>
         </form>
+
+        {% for i in meals %}
+            <p>Meal: {{ i.mealname }}</p>
+            <p>Calories in meal: {{ i.kcal }}</p> 
+            <form action="{{ url_for('addnewmeal', id=i.id) }}">
+                <button type = "Submit">Add Meal</button> <br>
+            </form>
+            
+        {% endfor %}
     </div>
 
     {% endblock body %}
