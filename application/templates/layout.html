@@ -2,8 +2,24 @@
 <html>
     <head>
         <title>Calorie Tracker</title>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/main.css') }}" />
     </head>
     <body>
+        <div class="header">
+            <nav>
+                <img src="media/logo.PNG" class="logo">
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('home') }}">CALORIE TRACKER HOME</a></li>
+                    <li><a href="{{ url_for('about') }}">ABOUT</a></li>
+                    <li><a href="{{ url_for('add') }}">ADD USER</a></li>
+                    <li><a href="{{ url_for('addmeal') }}">ADD MEAL</a></li>
+                    <li><a href="{{ url_for('allmeals') }}">MEALS</a></li>
+                    <li><a href="{{ url_for('allusers') }}">USERS</a></li>
+                    <li class="btn"><a href="{{ url_for('login') }}">Log In</a></li>
+                    <li class="btn"><a href="{{ url_for('allusers') }}">Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
         <a href="{{ url_for('home') }}">CALORIE TRACKER HOME</a>
         <a href="{{ url_for('about') }}">ABOUT</a>
         <a href="{{ url_for('add') }}">ADD USER</a>

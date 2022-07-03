@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+    {% block body %}
+    
+    <div class="form">
+        <form method="POST", action="">
+            {{ form.hidden_tag() }}
+                {{ form.chosenid.label }} {{ form.chosenid }}
+                <br>
+                {{ form.first_name.label }} {{ form.first_name }}
+                <br>
+                {{ form.surname.label }} {{ form.surname }}
+                <br>
+                {{ form.submit }}
+                <br> <br>
+                
+
+                
+        </form>
+        <h1>{{ strid }}</h1>
+        <h1>{{ strfname }}</h1>
+        <h1>{{ strsname }}</h1>
+        <h1>{{ strkcal }}</h1>
+        
+        
+    </div>
+
+    {% endblock body %}

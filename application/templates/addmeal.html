@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+    {% block body %}
+    <div class="content">
+        <form method="POST", action="">
+            {{ form.hidden_tag() }}
+                {{ form.mealname.label }} {{ form.mealname }}
+                <br>
+                {{ form.kcal.label }} {{ form.kcal }}
+                <br>
+                {{ form.userid.label }} {{ form.userid }}
+                <br>
+                <br>
+                {{ form.submit }}
+                <br>
+                <br>
+                <h2>Current users: </h2>
+
+                <br>
+        </form>
+    </div>
+
+    {% endblock body %}
