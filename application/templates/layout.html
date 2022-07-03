@@ -7,22 +7,20 @@
     <body>
         <div class="header">
             <nav>
-                <img src="media/logo.PNG" class="logo">
+                <img src="https://storage.googleapis.com/calorietrackerlogo/logo.PNG" class="logo">
                 <ul class="nav-links">
-                    <li><a href="{{ url_for('home') }}">CALORIE TRACKER HOME</a></li>
+                    <li><a href="{{ url_for('home') }}">HOME</a></li>
                     <li><a href="{{ url_for('about') }}">ABOUT</a></li>
                     <li><a href="{{ url_for('addmeal') }}">ADD MEAL</a></li>
-                    <li><a href="{{ url_for('allmeals') }}">MEALS</a></li>
-                    <li><a href="{{ url_for('allusers') }}">USERS</a></li>
+                    <!-- <li><a href="{{ url_for('allmeals') }}">MEALS</a></li>
+                    <li><a href="{{ url_for('allusers') }}">USERS</a></li> -->
                     <li class="btn"><a href="{{ url_for('login') }}">Log In</a></li>
                     <li class="btn"><a href="{{ url_for('signup') }}">Sign Up</a></li>
                 </ul>
             </nav>
         </div>
-        <a href="{{ url_for('home') }}">CALORIE TRACKER HOME</a>
-        <a href="{{ url_for('about') }}">ABOUT</a>
-
-        <h1>HEADER</h1>
+        <h1>Calorie Tracker</h1>
+        <br>
 
         {% block body %}
         {% endblock body %}
