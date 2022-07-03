@@ -42,35 +42,24 @@ def login():
                         current_user_kcalconsumed += i.kcal
                     
 
-
                 #test####
                     # str_all = f'Current user: {current_user}'
                     # strid = f'id: {current_user_id}'
                     # strfname = f'fname: {current_user_firstname}'
                     # strsname = f'name: {current_user_surname}'
                     # strkcal = f'name: {current_user_kcal}'
-                    return redirect(url_for('home'))
-                    
 
-                    
+                    return redirect(url_for('home'))
+                              
                 else:
                     global message
                     message = "You must enter valid login details, otherwise you can sign up for a new account."
 
-
-
-                # NewUserEntry = UserNew(
-                #     fname = form.first_name.data,
-                #     sname = form.surname.data,
-                #     kcalaim = form.kcalneeded.data
-                # )
-                
                 
         if (strid == ""):
             return render_template('login.html', form=form, message=message)
         else:
             return render_template('login.html', form=form, strid=strid, strfname=strfname, strsname=strsname, strkcal=strkcal, message=message )
-        #return render_template('login.html', form=form)
     else:
         return redirect(url_for('home'))
 
@@ -127,33 +116,6 @@ def addmeal():
 
 
 
-# def register():
-#     message = ""
-#     form = BasicForm()
-
-#     if request.method == 'POST':
-#         first_name = form.first_name.data
-#         surname = form.surname.data
-#         kcalneeded = form.kcalneeded.data
-
-#         if len(first_name) == 0 or len(surname) == 0 or kcalneeded == 0:
-#             message = "Please supply all information"
-#         else:
-#             message = f'Thank you, {first_name} {surname}'
-
-#     return render_template('home.html', form=form, message=message)
-
-#@app.route('/')
-# def index():
-#     all_users = UserNew.query.all()
-#     # userlist = ""
-#     # for user in all_users:
-#     #     userlist = userlist + (f'Name: {user.fname} {user.sname}, Calories Needed: {user.kcalaim}') 
-#     # return userlist
-#     return render_template("htmltrial.html", users = all_users)
-
-@app.route('/htmltrial')
-
 
 @app.route('/about')
 def about():
@@ -178,21 +140,8 @@ def signup():
     
     return render_template('adduser.html', form=form, newuserid=newuserid)
 
-# @app.route('/add/<name>')
-# def add(name):
-#     new_user = UserNew(fname=name, sname="Kimmy", kcalaim=1987, date="140200")
-#     db.session.add(new_user)
-#     db.session.commit()
-#     return redirect(url_for('home'))
 
 
-@app.route('/read')
-def read():
-    all_users = UserNew.query.all()
-    user_str = ""
-    for user in all_users:
-        user_str += "<br>"+user.fname
-    return user_str
 
 @app.route('/update/<int:id>', methods=['GET', 'POST'])
 def update(id):
@@ -232,12 +181,12 @@ def updatemeal(id):
     return render_template('addmeal.html', form=form)
 
 #needs some sort of regulation - password maybe?
-@app.route('/delete/<int:id>')
-def delete(id):
-    user_del = UserNew.query.get(id)
-    db.session.delete(user_del)
-    db.session.commit()
-    return redirect(url_for('home'))
+# @app.route('/delete/<int:id>')
+# def delete(id):
+#     user_del = UserNew.query.get(id)
+#     db.session.delete(user_del)
+#     db.session.commit()
+#     return redirect(url_for('home'))
 
 
 @app.route('/deletemeal/<int:id>')
@@ -262,10 +211,10 @@ def addnewmeal(id):
 
 
 
-@app.route('/count')
-def count():
-    total = UserNew.query.count()
-    return str(total)
+# @app.route('/count')
+# def count():
+#     total = UserNew.query.count()
+#     return str(total)
 
 
 
