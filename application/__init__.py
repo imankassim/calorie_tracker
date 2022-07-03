@@ -10,5 +10,6 @@ app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URI")
 
 db = SQLAlchemy(app)
 
+app.static_folder = 'static'
 
 from application import routes
