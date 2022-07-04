@@ -1,6 +1,9 @@
 from application import db
 from application.models import UserNew, Meals
 
+SQLALCHEMY_TRACK_MODIFICATIONS = True
+
+
 db.drop_all()
 db.create_all()
 
