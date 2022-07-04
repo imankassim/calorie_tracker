@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+    {% block body %}
+    <div class="content">
+        <form method="POST", action="">
+            {{ form.hidden_tag() }}
+                {{ form.mealname.label }} {{ form.mealname }}
+                <br>
+                {{ form.kcal.label }} {{ form.kcal }}
+                <br>
+                <br>
+                {{ form.submit }}
+                <br>
+                <br>
+                <h2>Current users: </h2>
+                <br><br>
+
+                {% if form.mealname.errors %}
+                    <div class='error'>
+                        {% for error in form.mealname.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                {% if form.kcal.errors %}
+                    <div class='error'>
+                        {% for error in form.kcal.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <br>
+        </form>
+
+        {% for i in meals %}
+            <p>Meal: {{ i.mealname }}</p>
+            <p>Calories in meal: {{ i.kcal }}</p> 
+            <form action="{{ url_for('addnewmeal', id=i.id) }}">
+                <button type = "Submit">Add Meal</button> <br>
+            </form>
+            
+        {% endfor %}
+    </div>
+
+    {% endblock body %}

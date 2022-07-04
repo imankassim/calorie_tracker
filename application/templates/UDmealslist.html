@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+    {% block body %}
+            {% for i in meals %}
+            <p>Meal: {{ i.mealname }}</p>
+            <p>Calories in meal: {{ i.kcal }}</p> 
+            <form action="{{ url_for('deletemeal', id=i.id) }}">
+                <button type = "Submit">Delete Meal</button> <br>
+            </form>
+            <form action="{{ url_for('updatemeal', id=i.id) }}">
+                <button type = "Submit">Update Meal</button> <br>
+            </form>
+            
+        {% endfor %}
+
+    {% endblock body %}

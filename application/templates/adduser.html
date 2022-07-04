@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+    {% block body %}
+    <h2>Sign Up Page</h2>
+    
+    <div class="form">
+        <form method="POST", action="">
+            {{ form.hidden_tag() }}
+                {{ form.first_name.label }} {{ form.first_name }}
+                <br>
+                {{ form.surname.label }} {{ form.surname }}
+                <br>
+                {{ form.kcalneeded.label }} {{ form.kcalneeded }}
+                <br>
+                {{ form.submit }}
+                <br> <br>
+                
+        </form>
+        <h3>{{ newuserid }}</h3>
+        
+    </div>
+
+    {% endblock body %}
