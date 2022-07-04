@@ -12,6 +12,22 @@
                 <br>
                 <br>
                 <h2>Current users: </h2>
+                <br><br>
+
+                {% if form.mealname.errors %}
+                    <div class='error'>
+                        {% for error in form.mealname.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                {% if form.kcal.errors %}
+                    <div class='error'>
+                        {% for error in form.kcal.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
 
                 <br>
         </form>

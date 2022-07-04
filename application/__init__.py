@@ -1,6 +1,10 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import os
+#from application.forms import NewUserForm, NewMealForm, Login, CharCheck
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField, IntegerField, SelectField
+from wtforms.validators import DataRequired, Length, ValidationError
 
 app=Flask(__name__)
 

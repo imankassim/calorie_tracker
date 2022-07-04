@@ -1,9 +1,10 @@
 from application import app, db
 from application.models import UserNew, Meals
-from application.forms import NewUserForm, NewMealForm, Login
+from application.forms import NewUserForm, NewMealForm, Login, UserCheck
 from flask import redirect, url_for, render_template, request, Markup
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, IntegerField, SelectField
+from wtforms.validators import DataRequired, Length, ValidationError
 
 
 SQLALCHEMY_TRACK_MODIFICATIONS = False
@@ -123,22 +124,28 @@ def about():
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    form = NewUserForm()
-    
-    if request.method == 'POST':
-        if form.validate_on_submit():
-            NewUserEntry = UserNew(
-                fname = form.first_name.data,
-                sname = form.surname.data,
-                kcalaim = form.kcalneeded.data
-            )
-            db.session.add(NewUserEntry)
-            db.session.commit()
-            newid = UserNew.query.order_by(UserNew.id.desc()).first()
-            newuserid = f'Your ID is {newid.id}. You can now log in'
-            #return redirect(url_for('home'))
-    
-    return render_template('adduser.html', form=form, newuserid=newuserid)
+    if (current_user_firstname == ""):
+        newuserid=""
+        form = NewUserForm()
+        
+        if request.method == 'POST':
+            if form.validate_on_submit():
+                NewUserEntry = UserNew(
+                    fname = form.first_name.data,
+                    sname = form.surname.data,
+                    kcalaim = form.kcalneeded.data
+                )
+                db.session.add(NewUserEntry)
+                db.session.commit()
+                newid = UserNew.query.order_by(UserNew.id.desc()).first()
+                newuserid = f'Your ID is {newid.id}. You can now log in'
+                #return redirect(url_for('home'))
+        
+        return render_template('adduser.html', form=form, newuserid=newuserid)
+
+    else:
+        return redirect(url_for('login'))
+        
 
 
 
