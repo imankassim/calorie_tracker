@@ -70,3 +70,7 @@ nav{
     border-radius: 3px;
     cursor: pointer;
 }
+
+.form{
+    padding:  10px 0;
+}
