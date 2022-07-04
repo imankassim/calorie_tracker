@@ -4,7 +4,7 @@ Description=Flask App
 [Service]
 User=jenkins
 WorkingDirectory=/home/jenkins/.jenkins/workspace/calorietracker
-Environment=DATABASE_URI=os.getenv(DATABASE_URI)
+Environment=DATABASE_URI=mysql+pymysql://root:root@35.230.143.151:3306/kcaltrak
 ExecStart=/bin/sh \
     -c 'python3 -m venv venv &&\
     . ./venv/bin/activate &&\
