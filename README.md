@@ -4,23 +4,23 @@ This is a Calorie Tracker system you can use to calculate how many calories you 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
 ### Prerequisites
 
 Software needed:
 
-An IDE (I used VS Code)
+- An IDE (I used VS Code)
 
-Linux BASH Terminal
+- Linux BASH Terminal
 
-Jenkins
+- Jenkins
 
 
 ### Installing (with Jenkins)
 
 - Fork and then clone this GitHub repo onto your terminal/host
-      - You can host this application anywhere, including with Google Cloud Provider, with GUnicorn, with Nginx or even locally within your IDE
+      - You can host this application anywhere, including with Google Cloud Platform, with GUnicorn, with Nginx or even locally within your IDE
 - Install Jenkins onto your terminal/host and configure the Jenkins setup
 - On your Forked version of the repo, configure your GitHub webhook to build in Jenkins when a change to the code is committed
 - Configure your Jenkins Job with your repo details to access the application straight from GitHub:
@@ -59,6 +59,10 @@ Jenkins
      ``` 
 
 
+### Tests
+
+Unit tests are used with form validators to ensure the right data is entering and leaving the app and database
+
 ## Running the tests
 
 - Clone this repository into your IDE
@@ -81,18 +85,15 @@ Jenkins
       python3 -m pytest --cov -report term_missing --cov= application tests
      ``` 
 
-### Tests
-
-Unit tests are used with form validators to ensure the right data is entering and leaving the app and database
-
 ## Built With
 
+* [Python](https://www.python.org/) - Programming Language
 * [Flask](https://flask.palletsprojects.com/en/2.1.x/) - Web application framework
+* [GCP VM Instance](https://cloud.google.com/) - Cloud hosted Virtual Machine
+* [pytest](https://docs.pytest.org/en/7.1.x/) - Testing with Python
+* [jenkins](https://www.jenkins.io/) - CI server
 
 
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning.
 
 ## Authors
 
@@ -100,7 +101,7 @@ We use [SemVer](http://semver.org/) for versioning.
 
 ## License
 
-This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md) file for details 
+This project is licensed under the MIT license
 
-*For help in [Choosing a license](https://choosealicense.com/)*
+
 
