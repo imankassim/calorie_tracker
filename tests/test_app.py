@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, redirect, request
 from flask_testing import TestCase
 from application import app, db
 from application.forms import NewUserForm, NewMealForm, Login
@@ -31,8 +31,10 @@ class TestBase(TestCase):
         db.create_all()
         #create test entry
         sample1 = UserNew(fname="test", sname="test", kcalaim=8378)
+        sample2 = Meals(mealname="test", kcal=2000)
         #save user to db
         db.session.add(sample1)
+        db.session.add(sample2)
         db.session.commit()
 
     #TEAR DOWN - RUNS AFTER TEST
@@ -56,3 +58,20 @@ class TestCreate(TestBase):
             data = dict(fname="test", sname="test", kcalaim=8378, date="300518")
         )
         self.assertIn("test", "test", 8378)
+
+    def test_create_meal(self):
+        response = self.client.post(
+            url_for('addmeal'),
+            data = dict(mealname="test", kcal=2000, userid=1)
+        )
+        self.assertIn("test", 2000, 1)
+
+#delete
+class TestDeleteReader(TestBase):
+    def test_delete_reader(self):
+        response = self.client.get(
+            url_for('deletemeal', id = 1)
+        )
+        assert len(Meals.query.all()) == 0   
+
+    
