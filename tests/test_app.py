@@ -48,7 +48,7 @@ class TestViews(TestBase):
         response = self.client.get(url_for('login'))
         self.assertEqual(response.status_code, 200)
 
-        
+#testing create functionality
 class TestCreate(TestBase):
     def test_create(self):
         response = self.client.post(
