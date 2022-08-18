@@ -1,6 +1,6 @@
 # calorie_tracker
 
-This is a Calorie Tracker system you can use to calculate how many calories you have had in a day. This can be accessed here: http://35.242.139.215:5000/login
+This is a Calorie Tracker system you can use to calculate how many calories you have had in a day. This can be accessed here: http://35.242.139.215:5000/login (until July 2022)
 
 ## Getting Started
 
